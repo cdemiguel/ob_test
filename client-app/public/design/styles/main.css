@@ -17,7 +17,8 @@ button {
 /* main link */
 /* general styles */
 body {
-  color: #6b6b6b; }
+  color: #6b6b6b;
+  padding-bottom: 2rem; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0; }
@@ -41,9 +42,28 @@ header {
 /* section-event */
 .section-gallery .section-event {
   border: 1px #CCC solid; }
-  .section-gallery .section-event .section-event-header, .section-gallery .section-event .section-event-info {
-    padding: 0.625rem 0.875rem; }
   .section-gallery .section-event .section-event-header p {
     color: #038cba; }
+
+/* returning nav */
+.nav-return a {
+  color: #038cba; }
+  .nav-return a :hover {
+    text-decoration: underline; }
+
+/* session selector */
+.section-sessions-selector {
+  border: 1px #CCC solid; }
+  .section-sessions-selector i {
+    color: #038cba; }
+
+/* section-shopping-cart */
+.section-shopping-cart {
+  border: 1px #CCC solid; }
+  .section-shopping-cart img {
+    width: 20px;
+    cursor: pointer; }
+  .section-shopping-cart .section-shopping-cart-item:last-child {
+    margin-top: 1rem; }
 
 /*# sourceMappingURL=main.css.map */

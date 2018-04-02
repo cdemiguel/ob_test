@@ -1,5 +1,5 @@
 /* font */
-$font-stack:    Helvetica, sans-serif;
+$font-stack: Helvetica, sans-serif;
 
 /* font colors */
 $text-gray-color: #6b6b6b;
@@ -51,6 +51,7 @@ $color:rgba(0, 0, 0, 0.4);
 /* general styles */
 body{
     color: $text-gray-color;
+    padding-bottom: 2rem;
 }
 h1, h2, h3, h4, h5, h6 {
     margin:0;
@@ -80,9 +81,6 @@ header {
     .section-gallery { 
         .section-event {
             border: $border-box;
-            .section-event-header, .section-event-info {
-                padding: $pad-h-v;
-            }
             .section-event-header {
                 p {
                     color: $text-primary-color;
@@ -90,3 +88,33 @@ header {
             }
         }
     }
+
+/* returning nav */
+.nav-return {
+    a {
+        color: $text-primary-color;
+        :hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+/* session selector */
+.section-sessions-selector {
+    border: $border-box;
+    i {
+        color: $text-primary-color;
+    }
+}
+
+/* section-shopping-cart */
+.section-shopping-cart {
+    border: $border-box;
+    img {
+        width: 20px;
+        cursor: pointer;
+    }
+    .section-shopping-cart-item:last-child {
+        margin-top: 1rem;
+    }
+}
