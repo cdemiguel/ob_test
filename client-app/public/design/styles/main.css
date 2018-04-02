@@ -1,0 +1,49 @@
+/* font */
+/* font colors */
+/* font sizes */
+/* padding boxes */
+/* background colors */
+/* border-box */
+/* box-shadow mixin */
+/* main button */
+button {
+  border: 0;
+  padding: 15px;
+  text-align: center;
+  color: #fff;
+  background: #038cba;
+  width: 100%; }
+
+/* main link */
+/* general styles */
+body {
+  color: #6b6b6b; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; }
+
+p {
+  margin: 0; }
+
+/* START web app sections */
+/* header-section */
+header {
+  background: #86ceeb;
+  -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  height: 75px; }
+  header p {
+    color: #6b6b6b;
+    margin: 0; }
+
+/* section-gallery */
+/* section-event */
+.section-gallery .section-event {
+  border: 1px #CCC solid; }
+  .section-gallery .section-event .section-event-header, .section-gallery .section-event .section-event-info {
+    padding: 0.625rem 0.875rem; }
+  .section-gallery .section-event .section-event-header p {
+    color: #038cba; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,92 @@
+/* font */
+$font-stack:    Helvetica, sans-serif;
+
+/* font colors */
+$text-gray-color: #6b6b6b;
+$text-primary-color: #038cba;
+$text-white-color: #fff;
+
+/* font sizes */
+$rembase: 16;
+$p-font-size-large  : 1rem;
+$p-font-size-medium : 0.875rem;
+$p-font-size-small  : 0.75rem;
+
+/* padding boxes */
+$pad-h-v: .625rem .875rem;
+
+/* background colors */
+$background-primary-color: #038cba;
+$background-secondary-color:#86ceeb;
+
+/* border-box */
+$border-box: 1px #CCC solid;
+
+/* box-shadow mixin */
+$top:0;
+$left:4px;
+$blur:4px;
+$color:rgba(0, 0, 0, 0.4);
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+    -moz-box-shadow: $top $left $blur $color;
+    -webkit-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+}
+
+/* main button */
+%main-button {
+    border: 0;
+    padding: 15px;
+    text-align: center;
+    color: $text-white-color;
+    background: $background-primary-color;
+    width: 100%;
+}
+
+/* main link */
+%main-link {
+    color: $text-primary-color;
+}
+
+/* general styles */
+body{
+    color: $text-gray-color;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin:0;
+}
+p {
+    margin:0;
+}
+button {
+    @extend %main-button;
+}
+
+/* START web app sections */
+
+/* header-section */
+header {
+    background: $background-secondary-color;
+    @include box-shadow($top, $left, $blur, $color);
+    height: 75px;
+    p {
+        color: $text-gray-color;
+        margin:0;
+    }
+}
+
+/* section-gallery */
+    /* section-event */
+    .section-gallery { 
+        .section-event {
+            border: $border-box;
+            .section-event-header, .section-event-info {
+                padding: $pad-h-v;
+            }
+            .section-event-header {
+                p {
+                    color: $text-primary-color;
+                }
+            }
+        }
+    }
