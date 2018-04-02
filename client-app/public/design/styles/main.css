@@ -10,6 +10,7 @@ button {
   border: 0;
   padding: 15px;
   text-align: center;
+  cursor: pointer;
   color: #fff;
   background: #038cba;
   width: 100%; }
@@ -55,7 +56,8 @@ header {
 .section-sessions-selector {
   border: 1px #CCC solid; }
   .section-sessions-selector i {
-    color: #038cba; }
+    color: #038cba;
+    cursor: pointer; }
 
 /* section-shopping-cart */
 .section-shopping-cart {
