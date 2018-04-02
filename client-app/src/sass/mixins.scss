@@ -1,0 +1,8 @@
+@import './variables';
+
+/* box shadow */
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+    -moz-box-shadow: $top $left $blur $color;
+    -webkit-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+}

@@ -1,0 +1,29 @@
+/* font */
+$font-stack: Helvetica, sans-serif;
+
+/* font colors */
+$text-gray-color: #6b6b6b;
+$text-primary-color: #038cba;
+$text-white-color: #fff;
+
+/* font sizes */
+$rembase: 16;
+$p-font-size-large  : 1rem;
+$p-font-size-medium : 0.875rem;
+$p-font-size-small  : 0.75rem;
+
+/* padding boxes */
+$pad-h-v: .625rem .875rem;
+
+/* background colors */
+$background-primary-color: #038cba;
+$background-secondary-color:#86ceeb;
+
+/* border-box */
+$border-box: 1px #CCC solid;
+
+/* box-shadow mixin */
+$top:0;
+$left:4px;
+$blur:4px;
+$color:rgba(0, 0, 0, 0.4);
