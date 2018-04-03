@@ -16,7 +16,6 @@ eventRoute.get("/", (req, res) => {
   } else {
     res.json({
       status: "KO",
-      message: err.message
     })
   }
 })
@@ -35,7 +34,6 @@ eventRoute.get("/event/:id", (req, res) => {
   } else {
     res.json({
       status: "KO",
-      message: err.message
     })
   }
 })
