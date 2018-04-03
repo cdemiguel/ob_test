@@ -11,6 +11,6 @@ const app = express();
 const cors = require("cors")
 app.use(cors())
 
-app.use("/events", eventRoute)
+app.use("/api", eventRoute)
 
 app.listen(port, () => console.log(`server running at ${port}`))
