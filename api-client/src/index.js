@@ -6,12 +6,12 @@ const api_client = {
   },
   getEvents() {
     return axios
-        .get(`${this.baseUrl()}/events`)
+        .get(`${this.baseUrl()}/api/events`)
         .then(res => res.data)
   },
   getEvent(eventId) {
       return axios
-        .get(`${this.baseUrl()}/events/event/${eventId}`)
+        .get(`${this.baseUrl()}/api/events/event/${eventId}`)
         .then(res => res.data)
   }
 }

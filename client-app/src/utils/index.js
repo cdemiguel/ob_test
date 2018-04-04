@@ -1,4 +1,4 @@
-import api_client from "client-api"
+import api_client from "api-client"
 
 api_client.protocol = process.env.REACT_APP_PROTOCOL
 api_client.host = process.env.REACT_APP_HOST

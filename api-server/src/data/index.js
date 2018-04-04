@@ -7,7 +7,13 @@ module.exports = {
     return events
   },
   getEvent(id) {
-    id == 68 ? (event = eventInfo68) : (event = eventInfo184)
+    if(id === "68") {
+      event = eventInfo68
+    }else if(id === "184") {
+      event = eventInfo184
+    }else {
+      event = "Sessions not found"
+    }
     return event
   }
 }

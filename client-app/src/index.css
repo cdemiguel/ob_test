@@ -31,7 +31,7 @@ button {
 /* border-box */
 /* box-shadow mixin */
 /* box shadow */
-/* general styles */
+/* general styles 01 */
 body {
   color: #6b6b6b;
   padding-bottom: 2rem; }
@@ -72,7 +72,8 @@ header {
   border: 1px #CCC solid; }
   .section-sessions-selector i {
     color: #038cba;
-    cursor: pointer; }
+    cursor: pointer;
+    margin:0 0.4rem; }
 
 /* section-shopping-cart */
 .section-shopping-cart {
