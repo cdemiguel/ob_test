@@ -35,7 +35,7 @@ class Sessions extends Component {
 
       })
       .then(() => {
-        if (localStorage.getItem("cart")) {
+        if (store.getCart()) {
           const cart = store.getCart()
           this.setState({ cart })
         }

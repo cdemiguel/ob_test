@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 function Header() {
     return <header className="d-flex align-items-center justify-content-center mb-5">
