@@ -81,5 +81,7 @@ header {
   .section-shopping-cart img {
     width: 20px;
     cursor: pointer; }
+  .section-shopping-cart .section-shopping-cart-item {
+    margin-bottom: 1rem; }
   .section-shopping-cart .section-shopping-cart-item:last-child {
-    margin-top: 1rem; }
+    margin-bottom: 0; }

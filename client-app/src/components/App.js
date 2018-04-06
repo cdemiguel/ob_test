@@ -215,8 +215,10 @@ class App extends Component {
           //         </div>
           //       </div>
           //     </div>
+
           //     <div className="col-12 col-md-6">
           //       <div className="section-shopping-cart p-3">
+
           //         <div className="section-shopping-cart-item">
           //           <div className="row align-items-center">
           //             <div className="col-12 pb-2">
@@ -238,6 +240,7 @@ class App extends Component {
           //               />
           //             </div>
           //           </div>
+          
           //           <div className="row align-items-center pt-1 pb-1">
           //             <div className="col">
           //               <span>10/12/2018</span>
