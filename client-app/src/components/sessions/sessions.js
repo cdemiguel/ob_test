@@ -54,7 +54,7 @@ class Sessions extends Component {
       return item
     })
 
-    if (localStorage.getItem("cart")) {
+    if (store.getCart()) {
       cart = store.getCart() 
       eventExist = cart.map(item => item.event.id).indexOf(event.event.id)
     }
