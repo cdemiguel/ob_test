@@ -36,8 +36,9 @@ class Events extends Component {
         <div className="row">
           {eventsList &&
             eventsList.map((event, index) => (
+
               <div key={event.id} className="col-12 col-md-6 mb-4">
-                <div className="section-event">
+              <div  className="section-event d-flex flex-column">
                   <div className="section-event-header p-3">
                     <p className="mb-1">{event.title}</p>
                     <p>{event.subtitle}</p>
@@ -70,12 +71,12 @@ class Events extends Component {
                       {event.description}
                     </p>
                   </div>
-                  <div className="section-event-button">
+                  <div className="section-event-button d-flex align-items-end">
                     <Link to={`/events/${event.id}`}>
                       <button>comprar</button>
                     </Link>
                   </div>
-                </div>
+              </div>
               </div>
             ))}
         </div>

@@ -57,9 +57,14 @@ header {
 /* section-gallery */
 /* section-event */
 .section-gallery .section-event {
-  border: 1px #CCC solid; }
+  border: 1px #CCC solid;
+  height: 100%; }
   .section-gallery .section-event .section-event-header p {
     color: #038cba; }
+  .section-gallery .section-event .section-event-button{
+    flex-grow: 1; }
+    .section-gallery .section-event .section-event-button a{
+      width: 100%; }
 
 /* returning nav */
 .nav-return a {
