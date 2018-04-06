@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
-import apiClient from "../../utils/index.js"
-import { withRouter, Link } from "react-router-dom"
+import apiClient from "../../utils/api"
+import { Link } from "react-router-dom"
 
 const moment = require("moment")
 
@@ -87,4 +87,4 @@ class Events extends Component {
   }
 }
 
-export default withRouter(Events)
+export default Events

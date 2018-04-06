@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 
-import apiClient from "../../utils/index.js"
+import store from "../../utils/store"
+import apiClient from "../../utils/api"
 import NavigationBack from "../navigation/navigationback"
 import SessionsList from "../sessionslist/sessionslist"
 import Cart from "../cart/cart"
@@ -29,7 +30,7 @@ class Sessions extends Component {
       })
       .then(() => {
         if (localStorage.getItem("cart")) {
-          const cart = JSON.parse(localStorage.getItem("cart"))
+          const cart = store.getCart()
           this.setState({ cart })
         }
       })
@@ -48,7 +49,7 @@ class Sessions extends Component {
     })
 
     if (localStorage.getItem("cart")) {
-      cart = JSON.parse(localStorage.getItem("cart"))
+      cart = store.getCart() 
       eventExist = cart.map(item => item.event.id).indexOf(event.event.id)
     }
 
@@ -64,7 +65,7 @@ class Sessions extends Component {
     })
   }
 
-    localStorage.setItem("cart", JSON.stringify(cart))
+  store.setCart(cart)
 
     this.setState({ event, cart })
   }
@@ -79,7 +80,7 @@ class Sessions extends Component {
       return item
     })
 
-    let cart = JSON.parse(localStorage.getItem("cart"))
+    let cart = store.getCart() 
     
     let eventExist = cart.map(item => item.event.id).indexOf(event.event.id)
 
@@ -96,7 +97,7 @@ class Sessions extends Component {
     }
 
     this.setState({ event, cart })
-    localStorage.setItem("cart", JSON.stringify(cart))
+    store.setCart(cart)
   }
 
   render() {
