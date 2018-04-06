@@ -9,7 +9,6 @@ function Cart(props) {
         <div className="row align-items-center">
           {props.cart &&
             props.cart.map(event => {
-
               return (
                 <div className="col-12 pb-1">
                 {event.sessions.slice(0, 1).map(session => {
