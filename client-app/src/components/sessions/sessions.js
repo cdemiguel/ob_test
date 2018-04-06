@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import api_client from "../../utils/index.js"
+import apiClient from "../../utils/index.js"
 import NavigationBack from "../navigation/navigationback"
 import SessionsList from "../sessionslist/sessionslist"
 import Cart from "../cart/cart"
@@ -15,13 +15,15 @@ class Sessions extends Component {
   }
 
   componentDidMount() {
-    api_client
+    apiClient
       .getEvent(this.props.match.params.id)
       .then(event => {
         event.data.sessions.map(session => {
           session.quantity = 0
           return session
         })
+
+        document.title = `Sessions ${event.data.event.title}`
 
         this.setState({ event: event.data })
       })
@@ -31,6 +33,7 @@ class Sessions extends Component {
           this.setState({ cart })
         }
       })
+      
   }
 
   addToCart = session => {

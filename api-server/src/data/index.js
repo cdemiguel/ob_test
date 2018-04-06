@@ -7,12 +7,11 @@ module.exports = {
     return events
   },
   getEvent(id) {
+    let event
     if(id === "68") {
       event = eventInfo68
     }else if(id === "184") {
       event = eventInfo184
-    }else {
-      event = "Sessions not found"
     }
     return event
   }

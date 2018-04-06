@@ -1,19 +1,19 @@
 const axios = require("axios")
 
-const api_client = {
+const apiClient = {
   baseUrl() {
-    return `${this.protocol}://${this.host}:${this.port}`
+    return `${this.url}`
   },
   getEvents() {
     return axios
-        .get(`${this.baseUrl()}/api/events`)
+        .get(`${this.baseUrl()}/events`)
         .then(res => res.data)
   },
   getEvent(eventId) {
       return axios
-        .get(`${this.baseUrl()}/api/events/event/${eventId}`)
+        .get(`${this.baseUrl()}/events/event/${eventId}`)
         .then(res => res.data)
   }
 }
 
-module.exports = api_client
+module.exports = apiClient

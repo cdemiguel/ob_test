@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import api_client from "../../utils/index.js"
+import apiClient from "../../utils/index.js"
 import { withRouter, Link } from "react-router-dom"
 
 const moment = require("moment")
@@ -14,7 +14,7 @@ class Events extends Component {
   }
 
   componentDidMount() {
-    api_client.getEvents().then(events => {
+    apiClient.getEvents().then(events => {
       if (events.status === "OK") {
         const eventsData = events.data
 
@@ -26,6 +26,8 @@ class Events extends Component {
         this.setState({ eventsList })
       }
     })
+
+    document.title = "Catalog"
   }
 
   render() {

@@ -1,14 +1,14 @@
 require('dotenv').config();
 
-const api_client = require('../src/index')
+const apiClient = require('../src/index')
 const assert = require('assert')
 const expect = require('chai').expect
 
 const { API_PROTOCOL, API_HOST, API_PORT } = process.env;
 
-api_client.protocol = API_PROTOCOL;
-api_client.host = API_HOST;
-api_client.port = API_PORT;
+apiClient.protocol = API_PROTOCOL;
+apiClient.host = API_HOST;
+apiClient.port = API_PORT;
 
 describe('Testing API client', () => {
 
@@ -16,7 +16,7 @@ describe('Testing API client', () => {
     const eventB = 184
 
     it('should recieve events data', done => {
-        api_client.getEvents()
+        apiClient.getEvents()
             .then(res => {
                 assert.equal(res.status, 'OK', 'results should be OK')
                 done()
@@ -25,7 +25,7 @@ describe('Testing API client', () => {
     })
 
     it('should recieve selected event 68', done => {
-        api_client.getEvent(eventA)
+        apiClient.getEvent(eventA)
             .then(res => {
                 assert.equal(res.status, 'OK', 'results should be OK')
                 expect(res.data.event.id).to.be.equal('68')
@@ -35,7 +35,7 @@ describe('Testing API client', () => {
     })
 
     it('should recieve selected event 184', done => {
-        api_client.getEvent(eventB)
+        apiClient.getEvent(eventB)
             .then(res => {
                 assert.equal(res.status, 'OK', 'results should be OK')
                 expect(res.data.event.id).to.be.equal('184')

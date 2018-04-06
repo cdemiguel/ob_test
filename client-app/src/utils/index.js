@@ -1,7 +1,5 @@
-import api_client from "api-client"
+import apiClient from "api-client"
 
-api_client.protocol = process.env.REACT_APP_PROTOCOL
-api_client.host = process.env.REACT_APP_HOST
-api_client.port = process.env.REACT_APP_PORT
+apiClient.url = process.env.REACT_APP_URL
 
-export default api_client
+export default apiClient
