@@ -9,21 +9,21 @@ class Events extends Component {
   constructor() {
     super()
     this.state = {
-      eventsList: []
+      events: []
     }
   }
 
   componentDidMount() {
-    apiClient.getEvents().then(events => {
-      if (events.status === "OK") {
-        const eventsData = events.data
+    apiClient.getEvents().then(_events => {
+      if (_events.status === "OK") {
+        const eventsData = _events.data
 
-        const eventsList = eventsData.map(event => ({
+        const events = eventsData.map(event => ({
           ...event,
           description: event.description.replace(/<\/?[^>]+>/gi, "")
         }))
 
-        this.setState({ eventsList })
+        this.setState({ events })
       }
     })
 
@@ -31,13 +31,13 @@ class Events extends Component {
   }
 
   render() {
-    const { eventsList } = this.state
+    const { events } = this.state
 
     return (
       <section className="container section-gallery">
         <div className="row">
-          {eventsList &&
-            eventsList.map((event, index) => (
+          {events &&
+            events.map((event, index) => (
 
               <div key={event.id} className="col-12 col-md-6 mb-4">
               <div  className="section-event d-flex flex-column">

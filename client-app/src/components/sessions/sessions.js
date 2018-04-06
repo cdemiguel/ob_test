@@ -10,7 +10,7 @@ class Sessions extends Component {
   constructor() {
     super()
     this.state = {
-      event: [],
+      events: [],
       cart: []
     }
   }
@@ -26,7 +26,7 @@ class Sessions extends Component {
 
         document.title = `Sessions ${event.data.event.title}`
 
-        this.setState({ event: event.data })
+        this.setState({ events: event.data })
       })
       .then(() => {
         if (localStorage.getItem("cart")) {
@@ -38,7 +38,7 @@ class Sessions extends Component {
   }
 
   addToCart = session => {
-    const event = this.state.event
+    const event = this.state.events
     let cart = []
     let eventExist = -1
 
@@ -67,11 +67,11 @@ class Sessions extends Component {
 
   store.setCart(cart)
 
-    this.setState({ event, cart })
+    this.setState({ events:event, cart })
   }
 
   deleteToCart = session => {
-    const event = this.state.event
+    const event = this.state.events
 
     event.sessions.map(item => {
       if (item.date === session.date && item.quantity > 0) {
@@ -96,7 +96,7 @@ class Sessions extends Component {
       })
     }
 
-    this.setState({ event, cart })
+    this.setState({ events:event, cart })
     store.setCart(cart)
   }
 
@@ -109,7 +109,7 @@ class Sessions extends Component {
             <div className="col-12 col-md-6">
               <div className="section-sessions-selector p-3">
                 <SessionsList
-                  sessions={this.state.event.sessions}
+                  sessions={this.state.events.sessions}
                   onAddToCart={this.addToCart}
                   onDeleteToCart={this.deleteToCart}
                 />
@@ -120,7 +120,7 @@ class Sessions extends Component {
               <div className="section-shopping-cart p-3">
                 <Cart
                   cart={this.state.cart}
-                  title={this.state.event.title}
+                  title={this.state.events.title}
                   onDeleteToCart={this.deleteToCart}
                 />
               </div>
