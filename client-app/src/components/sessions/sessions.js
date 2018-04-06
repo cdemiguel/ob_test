@@ -11,7 +11,8 @@ class Sessions extends Component {
     super()
     this.state = {
       events: [],
-      cart: []
+      cart: [],
+      noDataInfo:false
     }
   }
 
@@ -19,6 +20,7 @@ class Sessions extends Component {
     apiClient
       .getEvent(this.props.match.params.id)
       .then(event => {
+        if(event.status!="KO"){
         event.data.sessions.map(session => {
           session.quantity = 0
           return session
@@ -27,6 +29,10 @@ class Sessions extends Component {
         document.title = `Sessions ${event.data.event.title}`
 
         this.setState({ events: event.data })
+      }else {
+        this.setState({ noDataInfo: true })
+      }
+
       })
       .then(() => {
         if (localStorage.getItem("cart")) {
@@ -108,11 +114,11 @@ class Sessions extends Component {
           <div className="row">
             <div className="col-12 col-md-6">
               <div className="section-sessions-selector p-3">
-                <SessionsList
+                {!this.state.noDataInfo ? <SessionsList
                   sessions={this.state.events.sessions}
                   onAddToCart={this.addToCart}
                   onDeleteToCart={this.deleteToCart}
-                />
+                /> : <p>No hay data para este evento</p> }
               </div>
             </div>
 
