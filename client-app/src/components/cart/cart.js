@@ -8,17 +8,12 @@ function Cart(props) {
       <div className="section-shopping-cart-item">
         <div className="row align-items-center">
           {props.cart &&
-            props.cart.map(event => {
+            props.cart.map((event, index )=> {
               return (
                 <div className="col-12 pb-1">
-                {event.sessions.slice(0, 1).map(session => {
-                  if(session.quantity>0)
-                  return(
                   <div>
                     <p className="text-dark">{event.event.title}</p>
                   </div>
-                )
-                })}
                   {event.sessions.map(session => {
                     if (session.quantity > 0)
                       return (

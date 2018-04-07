@@ -74,6 +74,17 @@ class Sessions extends Component {
   store.setCart(cart)
 
     this.setState({ events:event, cart })
+
+
+  
+
+
+
+
+
+
+
+
   }
 
   deleteToCart = session => {
