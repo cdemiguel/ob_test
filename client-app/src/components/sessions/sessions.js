@@ -75,16 +75,6 @@ class Sessions extends Component {
 
     this.setState({ events:event, cart })
 
-
-  
-
-
-
-
-
-
-
-
   }
 
   deleteToCart = session => {
@@ -115,6 +105,11 @@ class Sessions extends Component {
 
     this.setState({ events:event, cart })
     store.setCart(cart)
+
+    /// add remove control 
+    // si el carrito todas las sesiones tienen 0 eliminarlo y pushearlo al local storage tb
+    ///
+
   }
 
   render() {
