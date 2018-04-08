@@ -78,7 +78,7 @@ class Sessions extends Component {
   }
 
   deleteToCart = session => {
-    const event = this.state.events
+    let event = this.state.events
 
     event.sessions.map(item => {
       if (item.date === session.date && item.quantity > 0) {
@@ -102,6 +102,23 @@ class Sessions extends Component {
         })
       })
     }
+
+
+    var result = event.sessions.every(item => {
+      return item.quantity == 0
+    })
+    if(result) {
+
+      //CUIDADO BUG NO BORRA DESDE BASURA EN OTRA SESSION
+
+cart = cart.filter(function (e) {
+    return e.event.title != event.event.title;
+})
+
+    }
+
+
+    
 
     this.setState({ events:event, cart })
     store.setCart(cart)
