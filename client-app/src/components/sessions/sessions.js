@@ -114,8 +114,8 @@ class Sessions extends Component {
 
   let flagCleanTitleList
     cart.forEach( function (arrayItem){
-      flagCleanTitleList = arrayItem.sessions.every(pedo => {
-        return pedo.quantity == 0
+      flagCleanTitleList = arrayItem.sessions.every(session => {
+        return session.quantity == 0
       })
     })
 
