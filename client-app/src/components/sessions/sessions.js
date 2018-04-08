@@ -12,7 +12,7 @@ class Sessions extends Component {
     this.state = {
       events: [],
       cart: [],
-      noDataInfo:false
+      noDataInfo: false
     }
   }
 
@@ -20,19 +20,18 @@ class Sessions extends Component {
     apiClient
       .getEvent(this.props.match.params.id)
       .then(event => {
-        if(event.status!="KO"){
-        event.data.sessions.map(session => {
-          session.quantity = 0
-          return session
-        })
+        if (event.status != "KO") {
+          event.data.sessions.map(session => {
+            session.quantity = 0
+            return session
+          })
 
-        document.title = `Sessions ${event.data.event.title}`
+          document.title = `Sessions ${event.data.event.title}`
 
-        this.setState({ events: event.data })
-      }else {
-        this.setState({ noDataInfo: true })
-      }
-
+          this.setState({ events: event.data })
+        } else {
+          this.setState({ noDataInfo: true })
+        }
       })
       .then(() => {
         if (store.getCart()) {
@@ -40,7 +39,6 @@ class Sessions extends Component {
           this.setState({ cart })
         }
       })
-      
   }
 
   addToCart = session => {
@@ -55,7 +53,7 @@ class Sessions extends Component {
     })
 
     if (store.getCart()) {
-      cart = store.getCart() 
+      cart = store.getCart()
       eventExist = cart.map(item => item.event.id).indexOf(event.event.id)
     }
 
@@ -64,17 +62,16 @@ class Sessions extends Component {
     } else {
       cart.map(item => {
         return item.sessions.map(item => {
-          return (item.date === session.date && item.quantity < item.availability)
+          return item.date === session.date && item.quantity < item.availability
             ? item.quantity++
             : ""
         })
-    })
-  }
+      })
+    }
 
-  store.setCart(cart)
+    store.setCart(cart)
 
-    this.setState({ events:event, cart })
-
+    this.setState({ events: event, cart })
   }
 
   deleteToCart = session => {
@@ -87,46 +84,47 @@ class Sessions extends Component {
       return item
     })
 
-    let cart = store.getCart() 
-    
+    let cart = store.getCart()
+
     let eventExist = cart.map(item => item.event.id).indexOf(event.event.id)
 
-    if(eventExist<0){
+    if (eventExist < 0) {
       cart.push(event)
-    }else{
       cart.map(item => {
         return item.sessions.map(item => {
-          return item.date === session.date && item.quantity > 0
-            ? item.quantity--
-            : ""
+          return item.date === session.date && item.quantity > 0 ? item.quantity-- : ""
+        })
+      })
+    } else {
+      cart.map(item => {
+        return item.sessions.map(item => {
+          return item.date === session.date && item.quantity > 0 ? item.quantity-- : ""
         })
       })
     }
 
-
     var result = event.sessions.every(item => {
       return item.quantity == 0
     })
-    if(result) {
-
-      //CUIDADO BUG NO BORRA DESDE BASURA EN OTRA SESSION
-
-cart = cart.filter(function (e) {
-    return e.event.title != event.event.title;
-})
-
+    if (result) {
+      cart = cart.filter(e => {
+        return e.event.title != event.event.title
+      })
     }
 
+  let flagCleanTitleList
+    cart.forEach( function (arrayItem){
+      flagCleanTitleList = arrayItem.sessions.every(pedo => {
+        return pedo.quantity == 0
+      })
+    })
 
-    
+    if(flagCleanTitleList) {
+      cart = []
+    }
 
-    this.setState({ events:event, cart })
+    this.setState({ events: event, cart })
     store.setCart(cart)
-
-    /// add remove control 
-    // si el carrito todas las sesiones tienen 0 eliminarlo y pushearlo al local storage tb
-    ///
-
   }
 
   render() {
@@ -137,11 +135,15 @@ cart = cart.filter(function (e) {
           <div className="row">
             <div className="col-12 col-md-6">
               <div className="section-sessions-selector p-3">
-                {!this.state.noDataInfo ? <SessionsList
-                  sessions={this.state.events.sessions}
-                  onAddToCart={this.addToCart}
-                  onDeleteToCart={this.deleteToCart}
-                /> : <p>No hay data para este evento</p> }
+                {!this.state.noDataInfo ? (
+                  <SessionsList
+                    sessions={this.state.events.sessions}
+                    onAddToCart={this.addToCart}
+                    onDeleteToCart={this.deleteToCart}
+                  />
+                ) : (
+                  <p>No hay data para este evento</p>
+                )}
               </div>
             </div>
 
