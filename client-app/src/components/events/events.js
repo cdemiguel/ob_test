@@ -23,6 +23,10 @@ class Events extends Component {
           description: event.description.replace(/<\/?[^>]+>/gi, "")
         }))
 
+        events.sort((item,_item) => { 
+          return item.startDate - _item.startDate
+        })
+
         this.setState({ events })
       }
     })

@@ -28,6 +28,10 @@ class Sessions extends Component {
 
           document.title = `Sessions ${event.data.event.title}`
 
+          event.data.sessions.sort((item,_item) => { 
+            return item.date - _item.date
+          })
+
           this.setState({ events: event.data })
         } else {
           this.setState({ noDataInfo: true })
@@ -133,7 +137,7 @@ class Sessions extends Component {
         <NavigationBack />
         <section className="container">
           <div className="row">
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-6 mb-4">
               <div className="section-sessions-selector p-3">
                 {!this.state.noDataInfo ? (
                   <SessionsList
